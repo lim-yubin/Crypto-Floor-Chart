@@ -1,4 +1,8 @@
 import "./solana.css";
 export default function Solana() {
-  return <></>;
+  return (
+    <>
+      <h1>Solana</h1>
+    </>
+  );
 }

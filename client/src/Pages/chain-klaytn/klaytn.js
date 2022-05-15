@@ -1,4 +1,8 @@
 import "./klaytn.css";
 export default function Klaytn() {
-  return <></>;
+  return (
+    <>
+      <h1>Klaytn</h1>
+    </>
+  );
 }

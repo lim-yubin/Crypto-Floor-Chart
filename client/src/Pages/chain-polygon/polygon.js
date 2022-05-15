@@ -1,4 +1,8 @@
 import "./polygon.css";
 export default function Polygon() {
-  return <></>;
+  return (
+    <>
+      <h1>Polygon</h1>
+    </>
+  );
 }
