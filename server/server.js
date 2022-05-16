@@ -22,7 +22,7 @@ const type = "24h";
 app.get("/", async (req, res) => {
   const chain = req.query.chain;
   const ranking = await OpenseaScraper.rankings(type, options, chain);
-  //   res.send(ranking[0]);
-  console.log(ranking[0]);
-  // res.send(chain);
+  console.log(ranking.length);
+  const data = JSON.stringify(ranking);
+  res.send(data);
 });
