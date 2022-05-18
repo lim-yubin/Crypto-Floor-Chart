@@ -8,6 +8,7 @@ import Klaytn from "./Pages/chain-klaytn/klaytn";
 import Polygon from "./Pages/chain-polygon/polygon";
 import Solana from "./Pages/chain-solana/solana";
 import Footer from "./Components/footer/footer";
+
 function App() {
   return (
     <>

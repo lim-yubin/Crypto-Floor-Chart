@@ -3,22 +3,16 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import MakeList from "../../Components/chain/makeList";
 export default function Ethereum() {
-  // const ethList = "";
   const [list, setList] = useState([]);
-
-  // getEthereumData();
 
   async function getEthereumData() {
     try {
-      const response = await axios.get("http://localhost:8080", {
+      const response = await axios.get("http://localhost:8080/ranking", {
         params: {
           chain: "ethereum",
         },
       });
-
       setList(response.data);
-      console.log(response.data[0].name);
-      console.log(response.data[1].floorPrice.amount);
     } catch (err) {
       console.log(err);
     }
@@ -29,11 +23,19 @@ export default function Ethereum() {
 
   return (
     <>
-      <div id="eth-list">
+      <div className="title-container">
+        <div className="ranking-title">Ethereum Collections</div>
+        <div className="sub-title">Ethereum기반 NFT프로젝트입니다. 24시간 기준, 거래량이 높은 순으로 확인할 수 있습니다. </div>
+      </div>
+      <div className="eth-list">
+        <div className="list-hd">
+          <div className="collection-list">Collection</div>
+          <div className="eth-price-list">Floor Price</div>
+          <div className="eth-krw-list">KRW</div>
+        </div>
         {list.map((el, i) => (
           <MakeList data={el} key={i} />
         ))}
-        {/* <MakeList /> */}
       </div>
     </>
   );

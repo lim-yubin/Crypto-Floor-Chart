@@ -15,19 +15,9 @@ export default function MakeList(data) {
           <img id="nft-logo" src={logo} alt="nft-logo" />
         </div>
         <div id="rank-name"> {name}</div>
-        <div id="rank-price">{floorPrice}</div>
+        <div id="eth-price">{floorPrice}</div>
+        <div id="krw-price">hi</div>
       </div>
     </>
   );
 }
-// export default function MakeList() {
-//   return (
-//     <>
-//       <div id="rank-box">
-//         <img id="rank-logo" src={""} alt="nft-logo" />
-//         <div id="rank-name"> 유빈</div>
-//         <div id="rank-price">1조</div>
-//       </div>
-//     </>
-//   );
-// }

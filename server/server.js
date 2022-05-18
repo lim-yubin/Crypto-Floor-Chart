@@ -19,7 +19,7 @@ const options = {
 };
 const type = "24h";
 
-app.get("/", async (req, res) => {
+app.get("/ranking", async (req, res) => {
   const chain = req.query.chain;
   const ranking = await OpenseaScraper.rankings(type, options, chain);
   console.log(ranking.length);
