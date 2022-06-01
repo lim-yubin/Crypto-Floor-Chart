@@ -8,11 +8,13 @@ export default function Ethereum() {
   async function getEthereumData() {
     try {
       const response = await axios.get("http://localhost:8080/ranking", {
+        //서버에서 바로 받지 말고, DB조회로 경로 수정
         params: {
           chain: "ethereum",
         },
       });
       setList(response.data);
+      console.log(response.data);
     } catch (err) {
       console.log(err);
     }

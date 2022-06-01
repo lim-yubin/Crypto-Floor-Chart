@@ -26,3 +26,5 @@ app.get("/ranking", async (req, res) => {
   const data = JSON.stringify(ranking);
   res.send(data);
 });
+
+// server.js 파일에서  openscraper를 이용하여 각종 체인기반의 NFT를 받아온후, DB에 저장(24시간 주기로) ** 중요 **
