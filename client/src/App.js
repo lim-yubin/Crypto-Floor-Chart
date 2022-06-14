@@ -3,10 +3,10 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import Home from "./Pages/home/home";
 import Nav from "./Components/nav/nav";
-import Ethereum from "./Pages/chain-ethereum/ethereum";
-import Klaytn from "./Pages/chain-klaytn/klaytn";
-import Polygon from "./Pages/chain-polygon/polygon";
-import Solana from "./Pages/chain-solana/solana";
+import Ethereum from "./Pages/ethereum";
+import Klaytn from "./Pages/klaytn";
+import Polygon from "./Pages/polygon";
+import Solana from "./Pages/solana";
 import Footer from "./Components/footer/footer";
 
 function App() {

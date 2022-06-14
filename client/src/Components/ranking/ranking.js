@@ -1,17 +1,13 @@
-import "../chain-ethereum/ethereum.css";
-import { useEffect, useState } from "react";
+import "./ranking.css";
 import axios from "axios";
+import { useEffect, useState } from "react";
 import MakeList from "../../Components/chain/makeList";
-export default function Klaytn() {
+export default function Ranking(chain) {
   const [list, setList] = useState([]);
 
   async function getEthereumData() {
     try {
-      const response = await axios.get("http://localhost:8080/ranking", {
-        params: {
-          chain: "klaytn",
-        },
-      });
+      const response = await axios.get(`http://localhost:8080/${chain.chain}`, {});
       setList(response.data);
     } catch (err) {
       console.log(err);
@@ -24,8 +20,8 @@ export default function Klaytn() {
   return (
     <>
       <div className="title-container">
-        <div className="ranking-title">Klaytn Collections</div>
-        <div className="sub-title">Klaytn기반 NFT프로젝트입니다. 24시간 기준, 거래량이 높은 순으로 확인할 수 있습니다. </div>
+        <div className="ranking-title">{chain.chain} Collections</div>
+        <div className="sub-title">{chain.chain} 기반 NFT프로젝트입니다. 24시간 기준, 거래량이 높은 순으로 확인할 수 있습니다. </div>
       </div>
       <div className="eth-list">
         <div className="list-hd">
