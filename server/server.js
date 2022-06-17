@@ -33,9 +33,15 @@ const options = {
 };
 const type = "24h";
 
+async function a() {
+  const a = await OpenseaScraper.rankings(type, options, "matic");
+  // console.log(a);
+}
+a();
 async function getData(chain) {
   try {
     const ranking = await OpenseaScraper.rankings(type, options, chain);
+    connection.query(`TRUNCATE ${chain}`);
     const query = `INSERT INTO ${chain} (id,name,slug,logo,amount,currency) VALUES (?,?,?,?,?,?)`;
     if (ranking.length === 100) {
       for (let i = 0; i < ranking.length; i++) {
@@ -73,7 +79,7 @@ const getChainData = async () => {
   await getData("solana");
   connection.end();
 };
-// getChainData();
+getChainData();
 app.use("/ethereum", ethRouter);
 app.use("/klaytn", klayRouter);
 app.use("/polygon", polyRouter);

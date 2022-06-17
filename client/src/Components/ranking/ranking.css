@@ -1,6 +1,6 @@
 
 
-.eth-list{
+.chain-list{
     display: flex;
     flex-direction: column;
     /* border: 1px solid black; */
@@ -46,9 +46,9 @@
   .collection-list{
     width: 60%;
   }
-  .eth-price-list{
+  .chain-price-list{
     width: 20%;
   }
-  .eth-krw-list{
+  .chain-krw-list{
     width: 20%;
   }

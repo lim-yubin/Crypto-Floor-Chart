@@ -8,6 +8,7 @@ import Klaytn from "./Pages/klaytn";
 import Polygon from "./Pages/polygon";
 import Solana from "./Pages/solana";
 import Footer from "./Components/footer/footer";
+import Graph from "./Pages/graph/graph";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/klaytn" element={<Klaytn />} />
         <Route path="/polygon" element={<Polygon />} />
         <Route path="/solana" element={<Solana />} />
+        <Route path="/graph/:chain/:name" element={<Graph />} />
       </Routes>
       <Footer />
     </>

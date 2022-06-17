@@ -6,6 +6,7 @@
     justify-content: center;
     /* background-color: rgba(156, 53, 225, 0.506); */
     border-bottom:1px solid black;
+    cursor: pointer;
     
     /* border-radius: 20px; */
     margin:5px auto;
@@ -37,7 +38,7 @@
     font-size: 18px;
     font-weight: 700;
 }
-#eth-price{
+#chain-price{
     display: flex;
     flex-direction: row;
     align-self: center;
