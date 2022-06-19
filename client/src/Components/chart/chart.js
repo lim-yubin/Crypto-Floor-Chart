@@ -14,7 +14,6 @@ export default function LineChart(chain, name) {
       let label = [],
         dArr = [];
       for (let i = 0; i < data.length; i++) {
-        // labelArray.push(new Date(data[i][0]).toLocaleDateString().slice(6).replace(" ", "").replace(".", "/"));
         label.push(new Date(data[i][0]).toLocaleDateString().replace(/ /g, "").slice(0, -1));
         dArr.push(data[i][2]);
       }
