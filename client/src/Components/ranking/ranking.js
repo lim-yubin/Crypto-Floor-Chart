@@ -18,6 +18,18 @@ export default function Ranking(chain) {
   useEffect(() => {
     getEthereumData();
   }, []);
+  // async function aa() {
+  //   try {
+  //     const res = await axios.get("https://api.opensea.io/api/v1/collection/doodles-official");
+  //     if (res) {
+  //       console.log(res);
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
+
+  // aa();
 
   return (
     <>
