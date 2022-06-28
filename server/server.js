@@ -33,11 +33,11 @@ const options = {
 };
 const type = "24h";
 
-async function a() {
-  const a = await OpenseaScraper.rankings(type, options, "matic");
-  // console.log(a);
-}
-a();
+// async function a() {
+//   const a = await OpenseaScraper.rankings(type, options, "matic");
+//   // console.log(a);
+// }
+// a();
 async function getData(chain) {
   try {
     const ranking = await OpenseaScraper.rankings(type, options, chain);

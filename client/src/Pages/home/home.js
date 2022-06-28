@@ -23,12 +23,12 @@ export default function Home() {
               <div>Klaytn</div>
             </div>
           </Link>
-          <Link to="/polygon" style={{ textDecoration: "none" }}>
+          {/* <Link to="/polygon" style={{ textDecoration: "none" }}>
             <div className="chain-box">
               <img id="img-polygon" src="img/polygon.svg" alt="polygon-img"></img>
               <div>Polygon</div>
             </div>
-          </Link>
+          </Link> */}
           <Link to="/solana" style={{ textDecoration: "none" }}>
             <div className="chain-box">
               <img id="img-solana" src="img/solana.svg" alt="solana-img"></img>

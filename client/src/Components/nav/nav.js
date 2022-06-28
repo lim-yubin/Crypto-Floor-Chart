@@ -12,6 +12,7 @@ export default function Nav() {
             </div>
           </Link>
         </div>
+        <div id="search-container">{/* <input id="search-box" type="text" /> */}</div>
         <div id="chain-container">
           <Link to="/ethereum" style={{ textDecoration: "none" }}>
             <div className="chain-nav">Ethereum</div>
@@ -19,9 +20,9 @@ export default function Nav() {
           <Link to="/klaytn" style={{ textDecoration: "none" }}>
             <div className="chain-nav">Klaytn</div>
           </Link>
-          <Link to="/polygon" style={{ textDecoration: "none" }}>
+          {/* <Link to="/polygon" style={{ textDecoration: "none" }}>
             <div className="chain-nav">Polygon</div>
-          </Link>
+          </Link> */}
           <Link to="/solana" style={{ textDecoration: "none" }}>
             <div className="chain-nav">Solana</div>
           </Link>
