@@ -4,7 +4,7 @@ import "./makeList.css";
 export default function MakeList(data) {
   const name = data.data.name;
   const logo = String(data.data.logo);
-  const amount = data.data.amount;
+  const amount = data.data.price;
   const chain = data.chain;
 
   return (

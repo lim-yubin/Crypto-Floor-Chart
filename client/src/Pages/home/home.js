@@ -13,13 +13,13 @@ export default function Home() {
         <div id="chain-section">
           <Link to="/ethereum" style={{ textDecoration: "none" }}>
             <div className="chain-box">
-              <img id="img-eth" src="img/eth.svg" alt="eth-img"></img>
+              <img id="img-eth" src="/eth.svg" alt="eth-img"></img>
               <div>Ethereum</div>
             </div>
           </Link>
           <Link to="/klaytn" style={{ textDecoration: "none" }}>
             <div className="chain-box">
-              <img id="img-klaytn" src="img/klaytn.svg" alt="klaytn-img"></img>
+              <img id="img-klaytn" src="/klaytn.svg" alt="klaytn-img"></img>
               <div>Klaytn</div>
             </div>
           </Link>
@@ -31,7 +31,7 @@ export default function Home() {
           </Link> */}
           <Link to="/solana" style={{ textDecoration: "none" }}>
             <div className="chain-box">
-              <img id="img-solana" src="img/solana.svg" alt="solana-img"></img>
+              <img id="img-solana" src="/solana.svg" alt="solana-img"></img>
               <div>Solana</div>
             </div>
           </Link>

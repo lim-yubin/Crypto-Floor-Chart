@@ -1,7 +1,6 @@
 const express = require("express");
 const cors = require("cors");
 const ethRouter = require("./routes/ethRouter");
-const polyRouter = require("./routes/polyRouter");
 const klayRouter = require("./routes/klayRouter");
 const solaRouter = require("./routes/solaRouter");
 const mysql = require("mysql");
@@ -32,17 +31,12 @@ const options = {
   browserInstance: undefined,
 };
 const type = "24h";
-
-// async function a() {
-//   const a = await OpenseaScraper.rankings(type, options, "matic");
-//   // console.log(a);
-// }
-// a();
 async function getData(chain) {
   try {
     const ranking = await OpenseaScraper.rankings(type, options, chain);
+    // console.log(ranking);
     connection.query(`TRUNCATE ${chain}`);
-    const query = `INSERT INTO ${chain} (id,name,slug,logo,amount,currency) VALUES (?,?,?,?,?,?)`;
+    const query = `INSERT INTO ${chain} (id,name,slug,logo,currentPrice,currency,volume,date,savedPrice) VALUES (?,?,?,?,?,?,?,'','')`;
     if (ranking.length === 100) {
       for (let i = 0; i < ranking.length; i++) {
         let data = ranking[i];
@@ -57,7 +51,15 @@ async function getData(chain) {
           amount = data.floorPrice.amount;
           currency = data.floorPrice.currency;
         }
-        let values = [id, data.name, data.slug, data.logo, amount, currency];
+        let values = [
+          id,
+          data.name,
+          data.slug,
+          data.logo,
+          amount,
+          currency,
+          data.volume,
+        ];
         connection.query(query, values, function (err, rows, fields) {
           if (err) {
             console.log(err);
@@ -75,12 +77,10 @@ const getChainData = async () => {
   connection.connect();
   await getData("ethereum");
   await getData("klaytn");
-  await getData("matic");
   await getData("solana");
   connection.end();
 };
 getChainData();
 app.use("/ethereum", ethRouter);
 app.use("/klaytn", klayRouter);
-app.use("/polygon", polyRouter);
 app.use("/solana", solaRouter);

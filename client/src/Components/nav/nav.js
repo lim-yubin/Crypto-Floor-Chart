@@ -7,8 +7,8 @@ export default function Nav() {
         <div id="icon-container">
           <Link to="/" style={{ textDecoration: "none" }}>
             <div id="icon-img">
-              <img id="icon-png" src="img/icon.png" alt="icon" />
-              <img id="icon-svg" src="img/title.svg" alt="icon"></img>
+              <img id="icon-png" src="/icon.png" alt="icon" />
+              <img id="icon-svg" src="/title.svg" alt="icon"></img>
             </div>
           </Link>
         </div>

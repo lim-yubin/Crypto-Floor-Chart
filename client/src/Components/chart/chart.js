@@ -1,11 +1,14 @@
+import "./chart.css";
 import { Line } from "react-chartjs-2";
+import { Chart } from "chart.js";
 import { useState, useEffect } from "react";
 import axios from "axios";
-// import Chart from "chart.js/auto";
+import zoomPlugin from "chartjs-plugin-zoom";
+Chart.register(zoomPlugin);
+
 export default function LineChart(chain, name) {
   const [labelArray, setLabelArray] = useState([]);
   const [dataArray, setDataArray] = useState([]);
-  console.log(chain);
 
   async function getChainPrice() {
     try {
@@ -26,22 +29,50 @@ export default function LineChart(chain, name) {
   }
   useEffect(() => {
     getChainPrice();
+    console.log(dataArray);
   }, []);
+
   const data = {
     labels: labelArray,
     datasets: [
       {
         type: "line",
         label: `${chain.chain}/KRW`,
-        borderColor: "rgb(54, 162, 235)",
+        borderColor: "rgb(163, 68, 235)",
         borderWidth: 1,
         data: dataArray,
       },
     ],
   };
+
+  const options = {
+    plugins: {
+      zoom: {
+        limits: {
+          // x: { min: 0.5, max: 2e3 },
+          y: { min: Math.min(...dataArray), max: Math.floor((Math.max(...dataArray) + Math.max(...dataArray) / 5) / 100) * 100 },
+        },
+        pan: {
+          enabled: true,
+          mode: "xy",
+        },
+        zoom: {
+          wheel: {
+            enabled: true,
+          },
+          pinch: {
+            enabled: true,
+          },
+          mode: "xy",
+        },
+      },
+    },
+  };
   return (
     <>
-      <Line type="line" data={data} width={500} />
+      <div id="line-container">
+        <Line type="line" options={options} data={data} width={400} />
+      </div>
     </>
   );
 }
