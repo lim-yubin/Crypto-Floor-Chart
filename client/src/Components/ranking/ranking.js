@@ -10,7 +10,6 @@ export default function Ranking(chain) {
     try {
       const response = await axios.get(`http://localhost:8080/${chain.chain}`);
       setList(response.data);
-      console.log("data변경");
     } catch (err) {
       console.log(err);
     }
@@ -18,18 +17,6 @@ export default function Ranking(chain) {
   useEffect(() => {
     getEthereumData();
   }, []);
-  // async function aa() {
-  //   try {
-  //     const res = await axios.get("https://api.opensea.io/api/v1/collection/doodles-official");
-  //     if (res) {
-  //       console.log(res);
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
-
-  // aa();
 
   return (
     <>

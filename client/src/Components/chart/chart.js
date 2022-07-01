@@ -6,13 +6,17 @@ import axios from "axios";
 import zoomPlugin from "chartjs-plugin-zoom";
 Chart.register(zoomPlugin);
 
-export default function LineChart(chain, name) {
+export default function LineChart(chain) {
   const [labelArray, setLabelArray] = useState([]);
   const [dataArray, setDataArray] = useState([]);
-
+  console.log(chain.name);
+  // let nftName = chain.name.replace(/ /g, "-");
   async function getChainPrice() {
     try {
       const response = await axios.get(`https://api.bithumb.com/public/candlestick/${chain.chain}_KRW/24h`);
+      // const nftResponse = await axios.get(`https://api-bff.nftpricefloor.com/nft/${nftName}/chart/pricefloor?interval=all`);
+      // console.log(nftResponse.data.dates);
+      // console.log(nftResponse.data.dataPriceFloorETH);
       let data = response.data.data;
       let label = [],
         dArr = [];
@@ -29,7 +33,6 @@ export default function LineChart(chain, name) {
   }
   useEffect(() => {
     getChainPrice();
-    console.log(dataArray);
   }, []);
 
   const data = {

@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 export default function Graph() {
   const { chain, name } = useParams();
 
+  console.log(name);
   function setCoinFunction() {
     let coin;
     if (chain === "ethereum") {

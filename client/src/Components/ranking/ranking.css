@@ -44,11 +44,18 @@
   }
   
   .collection-list{
-    width: 60%;
+    width: 55%;
+    /* border: 1px solid red; */
+    ;
   }
   .chain-price-list{
     width: 20%;
+    text-align: center;
+    /* border: 1px solid red; */
   }
   .chain-krw-list{
     width: 20%;
+    /* border: 1px solid red; */
+    text-align: right;
+    margin-right: 10px;
   }
