@@ -4,6 +4,7 @@ const axios = require("axios");
 const ethRouter = require("./routes/ethRouter");
 const klayRouter = require("./routes/klayRouter");
 const solaRouter = require("./routes/solaRouter");
+const nftRouter = require("./routes/nftRouter");
 const mysql = require("mysql");
 const config = require("./config/config.json");
 let pool = mysql.createPool(config);
@@ -131,7 +132,32 @@ const getChainData = async () => {
   await getData("solana");
 };
 
-getChainData();
+// getChainData();
 app.use("/ethereum", ethRouter);
 app.use("/klaytn", klayRouter);
 app.use("/solana", solaRouter);
+app.use("/getnft", nftRouter);
+
+let a = "illuminaticollective";
+// getSeedData(a);
+async function getSeedData(slug) {
+  const response = await axios.get(
+    `https://api-bff.nftpricefloor.com/nft/${slug}/chart/pricefloor?interval=all`
+  );
+  const price = [];
+  const date = response.data.dates.filter((el) => {
+    if (el.slice(11, 13) === "00") {
+      let index = response.data.dates.indexOf(el);
+      price.push(response.data.dataPriceFloorETH[index].toFixed(2));
+      return el;
+    }
+  });
+  pool.query(
+    `UPDATE ethereum SET dates='${date}', savedPrice='${price}' WHERE slug='${slug}';`,
+    function (err, rows) {
+      if (err) {
+        console.log(err);
+      }
+    }
+  );
+}

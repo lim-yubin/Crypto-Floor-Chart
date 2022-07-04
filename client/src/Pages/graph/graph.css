@@ -55,18 +55,11 @@
 #project-graph-section{
     margin-top: 20px;
     width: 100%;
-    height: 100%;
+    /* height: auto; */
     border: 1px solid green;
     display: flex;
     flex-direction: row;
 
 }
-#project-graph{
-    width: 80%;
-    border: 1px solid blue;
-}
-#project-price{
-    width: 20%;
-    border:1px solid red;
-}
+
 

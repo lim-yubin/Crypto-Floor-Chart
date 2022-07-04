@@ -16,9 +16,7 @@ export default function Graph() {
     if (chain === "klaytn") {
       coin = "KLAY";
     }
-    if (chain === "polygon") {
-      coin = "MATIC";
-    }
+
     if (chain === "solana") {
       coin = "SOL";
     }
@@ -35,11 +33,7 @@ export default function Graph() {
           <div id="project-name">{name}</div>
         </div>
         <div id="project-graph-section">
-          <div id="project-graph">
-            그래프
-            <LineChart chain={setCoinFunction()} name={name} />
-          </div>
-          <div id="project-price">가격</div>
+          <LineChart chain={setCoinFunction()} name={name} />
         </div>
       </div>
     </>
